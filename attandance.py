@@ -15,6 +15,22 @@ class attend_checker:
     no_of_ways = 0
     probability_miss = 0
 
+    # find_repeating_permutation
+    # custom function to generate all the permutation
+    # arguments: str => string Absent and present (0 or 1)
+    # pattern => prefix pattern generated in last recursion
+    # len_n => lenth of str, n => length of pattern
+    # permutation_list => to store pattern
+
+    def find_repeating_permutation(self, str, pattern, len_str, n, permutation_list):
+        if n == 0: 
+            permutation_list.append(pattern)
+            return
+
+        for i in range(len_str):
+            temp = pattern + str[i] 
+            self.find_repeating_permutation(str, temp, len_str, n-1, permutation_list)
+
     # main function
     # argument: no_days => user input
     # it calculate all the combination and calculate probability wheter student will able to attend graduation ceremony.
