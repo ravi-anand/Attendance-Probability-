@@ -39,7 +39,9 @@ class attend_checker:
     # If student miss class for four or more days he will be not able to attend the ceremony
 
     def main(self, no_days):
-        for combination in product(['0', '1'], repeat = no_days):
+        permutation_list = []
+        self.find_repeating_permutation("01", "", 2, no_days, permutation_list )
+        for combination in permutation_list:
             temp = ''.join(combination)
             if temp.find('0000') == -1:
                 self.no_of_ways +=1
